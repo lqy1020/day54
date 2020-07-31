@@ -35,6 +35,7 @@ public interface SysAreaMapper extends Mapper<SysArea> {
     int deleteParentIds(SysArea sysArea);
 
 
+
     @InsertProvider(type = SysAreaSqlProvider.class,method = "insertBatch")
     int insertBatch(@Param("areas")List<SysArea>areas);
 

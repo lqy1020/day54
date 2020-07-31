@@ -20,11 +20,9 @@ import java.util.Properties;
  */
 
 @Configuration
-//@MapperScan("com.lqy.mapper")
 @MapperScan("com.lqy.mapper")
 @Import({SpringTransaction.class,SpringRedisConfig.class,SpringCacheConfig.class})
 public class SpringMybatis {
-
     @Bean
     public DruidDataSource getDataSource(){
         DruidDataSource dataSource = new DruidDataSource();

@@ -75,6 +75,13 @@ public class SysAreaController {
         return new Result(true,"删除成功",service.deleteParentIds(sysArea));
     }
 
+    @RequestMapping(value = "doInsert",method = RequestMethod.POST)
+    public Result doInsert(SysArea sysArea){
+        sysArea.setCreateDate(new Date());
+        sysArea.setUpdateDate(new Date());
+        return new Result(true,"添加成功",service.insertSelective(sysArea));
+    }
+
     @RequestMapping("download")
     public void download(HttpServletResponse response) throws IOException {
         response.setHeader("Content-Disposition","attachment;filename="+new String("区域.xls".getBytes(),"iso-8859-1"));

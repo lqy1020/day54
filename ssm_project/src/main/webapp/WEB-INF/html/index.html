@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <!--<base href="/guguanjia/">-->
+    <base href="/guguanjia/">
     <meta charset="utf-8"/>
     <meta name="renderer" content="webkit">
 
@@ -13,28 +13,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
 
-    <link rel="stylesheet" href="../static/chosen/chosen.min.css"/>
+    <link rel="stylesheet" href="static/chosen/chosen.min.css"/>
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="../static/ace/css/ace.min.css"
+    <link rel="stylesheet" href="static/ace/css/ace.min.css"
           id="main-ace-style"/>
 
    
-    <link rel="stylesheet" href="../static/ace/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="../static/ace/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
 
    
 
-    <link rel="stylesheet" href="../static/ztree/metro.css"/>
-    <link rel="stylesheet" href="../static/validate/css/validform.css"/>
-    <link rel="stylesheet" href="../static/css/custom.css"/>
+    <link rel="stylesheet" href="static/ztree/metro.css"/>
+    <link rel="stylesheet" href="static/validate/css/validform.css"/>
+    <link rel="stylesheet" href="static/css/custom.css"/>
 
 
     <!-- ace settings handler -->
-    <script src="../static/ace/js/ace-extra.min.js"></script>
+    <script src="static/ace/js/ace-extra.min.js"></script>
 
    
 </head>
@@ -43,150 +43,13 @@
 <!-- 顶部条 -->
 <div id="navbar" class="navbar navbar-default">
 
-
-    <div class="navbar-container clearfix" id="navbar-container">
-        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
-            <span class="sr-only">Toggle sidebar</span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-
-            <span class="icon-bar"></span>
-        </button>
-
-        <div class="navbar-header pull-left" style="min-width:190px;">
-            <a class="navbar-brand">
-                <small>
-                    固管家服务平台
-                </small>
-            </a>
-        </div>
-        <!-- <div class="navbar-header">
-            <ul class="nav navbar-nav">
-                <li class="">
-                    <a  data-trigger="ajax" data-target="#fill-main-content" class="bigger-120">
-                    <i class="menu-icon fa "></i>&nbsp;
-                    </a>
-                </li>
-            </ul>
-        </div> -->
-
-        <div class="navbar-buttons navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-
-                <li class="green">
-                    <a class="dropdown-toggle" href="javascript:void(0);" id="fullscreen" title="全屏"
-                       onclick="launchFullscreen(document.documentElement);">
-                        <i class="ace-icon fa fa-arrows-alt "></i>
-                    </a>
-                </li>
-
-                <li class="purple" style="display:none;">
-                    <a data-toggle="dropdown" class="dropdown-toggle">
-                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
-                        <span class="badge badge-important">8</span>
-                    </a>
-
-                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="ace-icon fa fa-exclamation-triangle"></i>
-                            8 Notifications
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
-												New Comments
-											</span>
-                                    <span class="pull-right badge badge-info">+12</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <i class="btn btn-xs btn-primary fa fa-user"></i>
-                                Bob just signed up as an editor ...
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
-												New Orders
-											</span>
-                                    <span class="pull-right badge badge-success">+8</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a>
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
-												Followers
-											</span>
-                                    <span class="pull-right badge badge-info">+11</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="dropdown-footer">
-                            <a>
-                                See all notifications
-                                <i class="ace-icon fa fa-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="light-blue">
-                    <a data-toggle="dropdown" class="dropdown-toggle">
-                        <img class="nav-user-photo"
-                             src="../static/img/small-male-pic.png"/>
-                        <span class="user-info">
-									<small>你好,</small>
-									超级管理员
-								</span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="userCenter/userCenter.html">
-                                <i class="ace-icon fa fa-user"></i>
-                                我的资料
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="login.html">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div><!-- /.navbar-container -->
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
-    
-
 
     <div id="sidebar" class="sidebar responsive">
-		
+
+    </div>
 
 
     <div class="main-content">
@@ -305,13 +168,13 @@
 </div><!-- /.main-container -->
 <!-- 底部 -->
 <!-- basic scripts -->
-<script src="../static/jquery/jquery.js"></script>
+<script src="static/jquery/jquery.js"></script>
 
-<script src="../static/bootstrap/bootstrap.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../static/ace/js/ace-elements.min.js"></script>
-<script src="../static/ace/js/ace.min.js"></script>
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
 
 <script type="text/javascript">
 	try {
@@ -338,35 +201,33 @@
         ace.settings.check('navbar', 'fixed')
     } catch (e) {
     }
-</script>
-<script type="text/javascript">
+    $(function () {
+        $("#navbar").load("main/navbar");//"/guguanjia/"+"main/navbar"
+        $("#sidebar").load("main/sidebar");
+    })
 
-    window.onload = function () {
-        /* $("#ace-settings-navbar").trigger("click");//固定头部导航栏
-        $("#ace-settings-sidebar").trigger("click");//固定左侧菜单
-        $("#ace-settings-highlight").trigger("click"); */
-    };
 </script>
+
 
 <!-- 引入其他js -->
-<script src="../static/js/history.js"></script>
-<script type="text/javascript" src="../static/layer/layer.js"></script>
-<script type="text/javascript" src="../static/js/spin.min.js"></script>
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
 <script type="text/javascript"
-        src="../static/ztree/jquery.ztree.all-3.5.min.js"></script>
+        src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
 <script type="text/javascript"
-        src="../static/js/jquery.autosize.min.js"></script>
+        src="static/js/jquery.autosize.min.js"></script>
 <script type="text/javascript"
-        src="../static/chosen/chosen.jquery.min.js"></script>
+        src="static/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript"
-        src="../static/validate/Validform_v5.3.2_min.js"></script>
-<script type="text/javascript" src="../static/js/jquery.form.js"></script>
+        src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
 <script type="text/javascript"
-        src="../static/js/bootstrap-contextmenu.js"></script>
+        src="static/js/bootstrap-contextmenu.js"></script>
 <script type="text/javascript"
-        src="../static/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="../static/js/public.js"></script>
-
+        src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
 
 </body>
 </html>

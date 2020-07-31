@@ -375,9 +375,11 @@
 
 <!--</script>-->
 <script >
-    $("#navbar").load("main/navbar");
-    $("#sidebar").load("main/sidebar");
-
+    $(function(){//页面加载完成后加载
+        //load（网页）  在组件加载的时候，发送ajax请求获取服务器返回回来的页面内容
+        $("#navbar").load("main/navbar");
+        $("#sidebar").load("main/sidebar");
+    })
 
 </script>
 

@@ -321,13 +321,11 @@
 <script src="static/ace/js/ace.min.js"></script>
 
 <script type="text/javascript">
-    // $(function(){
-    //     $("#navbar").load("main/navbar");
-    //     $("#sidebar").load("main/sidebar");
-    // })
 
-    $("#navbar").load("main/navbar");
-    $("#sidebar").load("main/sidebar");
+    $(function () {
+        $("#navbar").load("main/navbar");//"/guguanjia/"+"main/navbar"
+        $("#sidebar").load("main/sidebar");
+    })
 
     try{ace.settings.check('navbar' , 'fixed')}catch(e){}
     try{ace.settings.check('main-container' , 'fixed')}catch(e){}

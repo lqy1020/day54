@@ -317,8 +317,10 @@
     try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
 
-    $("#navbar").load("main/navbar");
-	$("#sidebar").load("main/sidebar");
+	$(function () {
+		$("#navbar").load("main/navbar");//"/guguanjia/"+"main/navbar"
+		$("#sidebar").load("main/sidebar");
+	})
 
 </script>
 

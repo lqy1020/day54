@@ -308,8 +308,10 @@
         $("#ace-settings-highlight").trigger("click"); */
     };
 
-	$("#navbar").load("main/navbar");
-	$("#sidebar").load("main/sidebar");
+	$(function () {
+		$("#navbar").load("main/navbar");//"/guguanjia/"+"main/navbar"
+		$("#sidebar").load("main/sidebar");
+	})
 
 </script>
 
