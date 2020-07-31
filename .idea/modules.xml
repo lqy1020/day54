@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/es6/es6.iml" filepath="$PROJECT_DIR$/es6/es6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nixiang/nixiang.iml" filepath="$PROJECT_DIR$/nixiang/nixiang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nixiang2/nixiang2.iml" filepath="$PROJECT_DIR$/nixiang2/nixiang2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redisDemo/redisDemo.iml" filepath="$PROJECT_DIR$/redisDemo/redisDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm_project/ssm_project.iml" filepath="$PROJECT_DIR$/ssm_project/ssm_project.iml" />
+    </modules>
+  </component>
+</project>
