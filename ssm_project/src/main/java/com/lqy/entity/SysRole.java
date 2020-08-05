@@ -3,7 +3,9 @@ package com.lqy.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "sys_role")
 public class SysRole {
@@ -64,6 +66,61 @@ public class SysRole {
      */
     @Column(name = "del_flag")
     private String delFlag;
+
+    @Transient
+    private String officeName;
+
+    @Transient
+    private List<SysResource> resources;//角色权限
+
+    @Transient
+    private List<SysResource> oldResources;//原角色权限
+
+    @Transient
+    private List<SysOffice> offices;//角色已授权公司
+
+    @Transient
+    private List<SysOffice> oldOffices;//角色原已授权公司
+
+    public List<SysResource> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<SysResource> resources) {
+        this.resources = resources;
+    }
+
+    public List<SysResource> getOldResources() {
+        return oldResources;
+    }
+
+    public void setOldResources(List<SysResource> oldResources) {
+        this.oldResources = oldResources;
+    }
+
+    public List<SysOffice> getOffices() {
+        return offices;
+    }
+
+    public void setOffices(List<SysOffice> offices) {
+        this.offices = offices;
+    }
+
+    public List<SysOffice> getOldOffices() {
+        return oldOffices;
+    }
+
+    public void setOldOffices(List<SysOffice> oldOffices) {
+        this.oldOffices = oldOffices;
+    }
+
+    public String getOfficeName() {
+        return officeName;
+    }
+
+    public void setOfficeName(String officeName) {
+        this.officeName = officeName;
+    }
 
     /**
      * 获取编号
@@ -243,5 +300,26 @@ public class SysRole {
      */
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag == null ? null : delFlag.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysRole{" +
+                "id=" + id +
+                ", officeId=" + officeId +
+                ", name='" + name + '\'' +
+                ", dataScope='" + dataScope + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateDate=" + updateDate +
+                ", remarks='" + remarks + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                ", officeName='" + officeName + '\'' +
+                ", resources=" + resources +
+                ", oldResources=" + oldResources +
+                ", offices=" + offices +
+                ", oldOffices=" + oldOffices +
+                '}';
     }
 }

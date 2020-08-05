@@ -1,10 +1,20 @@
 let vm = new Vue({
     el: '.page-content',
     data: {
-        area: {}
+        area: {
+            parentName:'',
+            parentId:'',
+            name:'',
+            code:'',
+            type:'',
+            icon:'',
+            remarks:'',
+            parentIds:'',
+
+        }
     },
     methods: {
-        doUpdate: function () {
+        doInsert: function () {
             axios({
                 url: 'manager/area/doInsert',
                 method: 'post',
@@ -14,9 +24,9 @@ let vm = new Vue({
                 parent.layer.success = response.data.success;
                 if (parent.layer.success) {
                     parent.layer.close(index);
-                    parent.layer.msg("更新成功")
+                    parent.layer.msg("插入成功")
                 } else {
-                    parent.layer.msg("更新失败");
+                    parent.layer.msg("插入失败");
                 }
 
             }).catch(error => {

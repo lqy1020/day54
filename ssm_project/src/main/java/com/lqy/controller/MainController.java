@@ -2,7 +2,9 @@ package com.lqy.controller;
 
 import com.lqy.Utils.EncryptUtils;
 import com.lqy.entity.Result;
+import com.lqy.entity.SysResource;
 import com.lqy.entity.SysUser;
+import com.lqy.service.SysResourceService;
 import com.lqy.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @auth lqy
@@ -26,10 +31,14 @@ public class MainController {
     @Autowired
     SysUserService sysUserService;
 
+    @Autowired
+    SysResourceService sysResourceService;
+
     @RequestMapping("/navbar")
     public String getNavbar(){
        return "/common/navbar";
     }
+
     @RequestMapping("/sidebar")
     public String getSidebar(){
         return "/common/sidebar";
@@ -52,8 +61,15 @@ public class MainController {
 
             SysUser loginUser = sysUserService.selectOne(sysUser);
             if (loginUser!=null){
+                List<SysResource> resources = sysResourceService.selectByUid(loginUser.getId());
+                loginUser.setResources(resources);
                 sysUser.setPassword("");
                 session.setAttribute("loginUser",loginUser);
+                session.setAttribute("resources",resources);
+//                封装权限和用户登录信息到map集合返回到前端
+//                Map<String,Object>map= new HashMap<>();
+//                map.put("loginUser",loginUser);
+//                map.put("resources",resources);
                 return new Result(true,"登陆成功",loginUser);
             }
 

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @auth lqy
  * @date 2020/7/21
@@ -25,4 +27,10 @@ public class SysOfficeController {
         sysOffice.setDelFlag("0");
         return new Result(true,"查询成功",service.select(sysOffice));
     }
+
+    @RequestMapping("selectOfficeByRid")
+    public Result selectOfficeByRid(Long rid){
+        return new Result(true,"查询成功",service.selectOfficeByRid(rid));
+    }
+
 }

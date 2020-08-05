@@ -40,6 +40,12 @@ public class SysAreaController {
         return new ModelAndView("/area/select");
     }
 
+    @RequestMapping("toInsert")
+    public ModelAndView toInsert(){
+        return new ModelAndView("/area/add");
+    }
+
+
     @RequestMapping("select")
     public Result select(){
         SysArea sysArea = new SysArea();
@@ -76,9 +82,10 @@ public class SysAreaController {
     }
 
     @RequestMapping(value = "doInsert",method = RequestMethod.POST)
-    public Result doInsert(SysArea sysArea){
+    public Result doInsert(@RequestBody SysArea sysArea){
         sysArea.setCreateDate(new Date());
         sysArea.setUpdateDate(new Date());
+//        sysArea.setParentId(0L);
         return new Result(true,"添加成功",service.insertSelective(sysArea));
     }
 

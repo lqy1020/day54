@@ -84,6 +84,9 @@ let vm = new Vue({
                 area: ['60%','80%'],
                 content: `manager/area/toUpdate`,
                 end:()=>{
+                    if (layer.success == undefined || !layer.success) {
+                        this.selectPage();
+                    }
                 }
             });
         },
@@ -211,15 +214,18 @@ let vm = new Vue({
             // console.log(this)
             $(`#${tId}_add`).on('click',function () {
                 console.log("------------------");
-            //     /*layer.open({
-            //         type: 2,        //加载一个页面
-            //         title: false,
-            //         area: ['80%', '90%'],//设置宽高   px  或比例  占据父窗口
-            //         content: 'manager/area/toUpdate',
-            //         /!*end:()=>{ //关闭子窗口后的回调函数  会把this替换掉
-            //
-            //         }*!/
-            //     })*/
+                layer.open({
+                    type: 2,        //加载一个页面
+                    title: false,
+                    area: ['80%', '90%'],//设置宽高   px  或比例  占据父窗口
+                    content: 'manager/area/toInsert',
+                   end:()=>{ //关闭子窗口后的回调函数  会把this替换掉
+                       if (layer.success == undefined || !layer.success) {
+                           this.selectPage();
+                           this.initTree();
+                       }
+                    }
+                })
             });
 
             // console.log(treeNode)

@@ -31,7 +31,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        System.out.println("方法执行前的拦截。。。");
+//        System.out.println("方法执行前的拦截。。。");
         HttpSession session = request.getSession();
         Object loginUser = session.getAttribute("loginUser");
         if (loginUser==null){
@@ -47,7 +47,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     /*方法返回后执行*/
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("方法返回后执行。。。");
+//        System.out.println("方法返回后执行。。。");
 
 
     }
@@ -56,7 +56,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
-        System.out.println("返回视图到前端时处理。。。");
+//        System.out.println("返回视图到前端时处理。。。");
 
     }
 }

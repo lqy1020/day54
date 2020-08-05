@@ -1,6 +1,8 @@
 package com.lqy.config;
 
 import com.lqy.interceptor.LoginInterceptor;
+import com.lqy.interceptor.ResourceInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +19,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan("com.lqy.controller")
 @EnableWebMvc
 public class SpringMvcConfig implements WebMvcConfigurer {
+
+    @Autowired
+    private ResourceInterceptor resourceInterceptor;
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -40,6 +45,9 @@ public class SpringMvcConfig implements WebMvcConfigurer {
         InterceptorRegistration registration = registry.addInterceptor(loginInterceptor);
         registration.addPathPatterns("/**");
         registration.excludePathPatterns("/main/toLogin","/main/loginOut");
+
+        InterceptorRegistration interceptorRegistration = registry.addInterceptor(resourceInterceptor);
+        interceptorRegistration.addPathPatterns("/manager/**");
 
     }
 }

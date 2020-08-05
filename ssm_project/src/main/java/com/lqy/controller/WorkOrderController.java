@@ -28,7 +28,7 @@ public class WorkOrderController {
     @Autowired
     WorkOrderService service;
 
-    @RequestMapping("admin/index")
+    @RequestMapping("admin/work")
     public ModelAndView toIndex(){
         return new ModelAndView("/work/admin/index");
     }

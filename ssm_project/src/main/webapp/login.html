@@ -168,9 +168,15 @@
 							params:{username:this.username,password: this.password,code:this.code}
 						}).then(response=>{
 							layer.msg(response.data.msg);
+							// console.log(response.data.obj);
+							debugger;
 							if (response.data.success){
+								//1.登录成功后绑定用户登录状态到前端对象
+								//stringify：将对象转换成json格式的字符串对象
 								let loginUser=JSON.stringify(response.data.obj);
-								sessionStorage.setItem("loginUser",loginUser);
+							// sessionStorage.setItem("loginUser",loginUser);//放入前端状态保持对象 sessionStorage存取的值，重新打开窗口访问不会传过去 localStorage可以传
+								localStorage.setItem("loginUser",loginUser);//放入前端状态保持对象
+								//2.成功后跳转到index页
 								location.href="main/toIndex";
 							}
 						})

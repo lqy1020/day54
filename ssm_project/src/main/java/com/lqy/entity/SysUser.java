@@ -3,7 +3,9 @@ package com.lqy.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "sys_user")
 public class SysUser {
@@ -123,6 +125,18 @@ public class SysUser {
      */
     @Column(name = "head_picture")
     private String headPicture;
+
+
+    @Transient
+    private List<SysResource> resources;//用户的菜单权限
+
+    public List<SysResource> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<SysResource> resources) {
+        this.resources = resources;
+    }
 
     /**
      * 获取编号
@@ -510,5 +524,34 @@ public class SysUser {
      */
     public void setHeadPicture(String headPicture) {
         this.headPicture = headPicture == null ? null : headPicture.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id=" + id +
+                ", companyId=" + companyId +
+                ", officeId=" + officeId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", no='" + no + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", userType='" + userType + '\'' +
+                ", deviceCode='" + deviceCode + '\'' +
+                ", loginIp='" + loginIp + '\'' +
+                ", loginDate=" + loginDate +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateDate=" + updateDate +
+                ", remarks='" + remarks + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                ", status='" + status + '\'' +
+                ", headPicture='" + headPicture + '\'' +
+                ", resources=" + resources +
+                '}';
     }
 }

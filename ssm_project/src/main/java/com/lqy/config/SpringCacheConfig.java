@@ -25,6 +25,7 @@ public class SpringCacheConfig {
         List<String> cacheNames = new ArrayList<>();
         cacheNames.add("officeCache");
         cacheNames.add("orderCache");
+        cacheNames.add("resourceCache");
         redisCacheManager.setCacheNames(cacheNames);
         redisCacheManager.setDefaultExpiration(600);//设置缓存的默认生存时间
         return redisCacheManager;

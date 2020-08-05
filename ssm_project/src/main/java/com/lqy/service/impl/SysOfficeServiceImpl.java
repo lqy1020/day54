@@ -3,7 +3,10 @@ package com.lqy.service.impl;
 
 import com.lqy.entity.SysOffice;
 
+import com.lqy.entity.SysResource;
+import com.lqy.mapper.SysOfficeMapper;
 import com.lqy.service.SysOfficeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -23,6 +26,8 @@ import java.util.List;
 @CacheConfig(cacheNames = "officeCache")
 public class SysOfficeServiceImpl extends BaseSerciveImpl<SysOffice> implements SysOfficeService {
 
+    @Autowired
+    SysOfficeMapper sysOfficeMapper;
 //    @Autowired
 //    RedisTemplate<Object,Object> redisTemplate;
 //
@@ -72,4 +77,13 @@ public class SysOfficeServiceImpl extends BaseSerciveImpl<SysOffice> implements 
     public int updateByPrimaryKeySelective(SysOffice sysOffice) {
         return super.updateByPrimaryKeySelective(sysOffice);
     }
+
+
+    @Override
+    public List<SysOffice> selectOfficeByRid(Long rid){
+        return sysOfficeMapper.selectOfficeByRid(rid);
+    }
+
+
+
 }

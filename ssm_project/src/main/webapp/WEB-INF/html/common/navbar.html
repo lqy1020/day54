@@ -147,10 +147,14 @@
 
            getLoginUser:function () {
                // debugger;
-               let loginUser=sessionStorage.getItem("loginUser");
-               if (loginUser!=undefined&&loginUser!=null){
+               //从sessiionStorge中获取绑定用户字符串，转对象
+               let loginUser=localStorage.getItem("loginUser");
+               debugger
+               if (loginUser!=undefined&&loginUser!=null){//防止直接不登录访问其他页面
+                   //JSON解析成对象
                    this.loginUser=JSON.parse(loginUser);
-               }else {
+               }
+               else {
                    location.href="login.html";
                }
            },

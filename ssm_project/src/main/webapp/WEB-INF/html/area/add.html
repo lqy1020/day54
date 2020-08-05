@@ -85,8 +85,7 @@
                                         <tr class="FormData">
                                             <td class="CaptionTD">区域类型</td>
                                             <td class="DataTD width-100">
-                                                <select class="chosen-select " name="type" id="chosen-select" v-model="area.type"
-                                                        style="display: none;">
+                                                <select name="type" id="chosen-select" v-model="area.type">
                                                     <option value="1">
                                                         国家
                                                     </option>
@@ -150,7 +149,7 @@
 
                             <div class="width-100 clearfix" tag-save-btn=""
                                  style="bottom: -36px; left: 0px; position: absolute;">
-	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="area-save-save" @click="doUpdate">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="area-save-save" @click="doInsert">
 		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 确 定
 	</span>
                                 <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" @click="doCancel"
@@ -181,14 +180,14 @@
 <!-- ace scripts -->
 <script src="static/ace/js/ace-elements.min.js"></script>
 <script src="static/ace/js/ace.min.js"></script>
-<script>
-    $(function () {
-        $("#chosen-select").chosen({
-            width: "100%",
-            search_contains: true
-        });
-    });
-</script>
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$("#chosen-select").chosen({-->
+            <!--width: "100%",-->
+            <!--search_contains: true-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 <script type="text/javascript">
 
     try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -213,7 +212,7 @@
 <script type="text/javascript" src="static/js/public.js"></script>
 <script type="text/javascript" src="static/vue/vue.js"></script>
 <script type="text/javascript" src="static/vue/axios.js"></script>
-<script type="text/javascript" src="static/js/area/update.js"></script>
+<script type="text/javascript" src="static/js/area/add.js"></script>
 
 </body>
 </html>
