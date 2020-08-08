@@ -11,6 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -31,6 +32,11 @@ public class SpringMybatis {
         try {
             properties.load(is);
             dataSource.configFromPropety(properties);
+            try {
+                dataSource.setFilters("stat,wall");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             return dataSource;
         } catch (IOException e) {
             e.printStackTrace();

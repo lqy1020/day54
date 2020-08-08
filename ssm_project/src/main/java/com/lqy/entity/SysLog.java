@@ -53,6 +53,54 @@ public class SysLog {
      */
     private String method;
 
+
+    private String params;
+
+    private String exception;
+
+    private String description;
+
+    @Override
+    public String toString() {
+        return "SysLog{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", remoteAddr='" + remoteAddr + '\'' +
+                ", userAgent='" + userAgent + '\'' +
+                ", requestUri='" + requestUri + '\'' +
+                ", method='" + method + '\'' +
+                ", params='" + params + '\'' +
+                ", exception='" + exception + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public String getParams() {
+        return params;
+    }
+
+    public void setParams(String params) {
+        this.params = params;
+    }
+
+    public String getException() {
+        return exception;
+    }
+
+    public void setException(String exception) {
+        this.exception = exception;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     /**
      * 获取编号
      *

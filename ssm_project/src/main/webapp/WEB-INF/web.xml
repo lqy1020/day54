@@ -4,19 +4,35 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
+	<!--
+	context-param 用于设置容器的初始化参数，会传入到listener
+	该配置用于设置ContextLoaderListener方法createWebApplicationContext的创建spring容器类
+	-->
 
 	<context-param>
 		<param-name>contextClass</param-name>
 		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
+	<!--指定读取的spring配置类-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>com.lqy.config.SpringMybatis</param-value>
 	</context-param>
 
+	<!--
+	listener是tomcat三大组件之一
+	tomcat组件加载顺序: listener->filter->servlet
+	该监听器作用是在tomcat启动的时候创建spring的父容器，在父容器中加载服务层、dao层
+	在子容器中会自动传入父容器，这样filter、子容器中都可以获取到spring父容器中的spring管理对象
+	-->
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
+	<!--
+	spring子容器  会自动传入父容器   且读取springmvc配置创建controller层
+	-->
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>

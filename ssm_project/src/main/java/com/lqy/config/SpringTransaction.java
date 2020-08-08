@@ -1,12 +1,12 @@
 package com.lqy.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import com.lqy.interceptor.ResourceInterceptor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import com.lqy.web.DruidStatViewFilter;
+import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
+import org.springframework.context.annotation.*;
 //import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -19,8 +19,9 @@ import javax.sql.DataSource;
  * @Description
  */
 @Configuration
-@ComponentScan("com.lqy.service")
+@ComponentScan({"com.lqy.service","com.lqy.aspect"})
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 @PropertySource(value = "classpath:system.properties",encoding = "utf-8")
 public class SpringTransaction {
 
@@ -38,6 +39,23 @@ public class SpringTransaction {
     public ResourceInterceptor getResourceInterceptor(){
         return new ResourceInterceptor();
     }
+
+
+    @Bean(name = "druidStatInterceptor")
+    public DruidStatInterceptor getDruidStatInterceptor(){
+        DruidStatInterceptor druidStatInterceptor = new DruidStatInterceptor();
+        return druidStatInterceptor;
+    }
+
+    @Bean//配置spring监控
+    public BeanNameAutoProxyCreator getAutoProxyCreator(){
+        BeanNameAutoProxyCreator beanNameAutoProxyCreator = new BeanNameAutoProxyCreator();
+        beanNameAutoProxyCreator.setProxyTargetClass(true);
+        beanNameAutoProxyCreator.setBeanNames(new String[]{"*Mapper","*ServiceImpl"});
+        beanNameAutoProxyCreator.setInterceptorNames("druidStatInterceptor");
+        return beanNameAutoProxyCreator;
+    }
+
 
 
 }

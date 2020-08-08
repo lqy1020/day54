@@ -31,6 +31,11 @@ public class SysAreaListener extends AnalysisEventListener<SysArea> {
     public SysAreaListener() {
     }
 
+    /*
+     * 每读取一行excel自动执行的方法
+     * sysArea是解析一行excel记录后自动封装的java对象
+     * analysisContext是easyexcel的上下文对象
+     * */
     @Override
     public void invoke(SysArea sysArea, AnalysisContext analysisContext) {
         list.add(sysArea);
