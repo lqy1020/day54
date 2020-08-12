@@ -39,8 +39,15 @@ public class SpringRedisConfig {
     public RedisTemplate<Object,Object> getRedisTemplate(RedisConnectionFactory connectionFactory){
         RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(connectionFactory);
+        //设置序列化器，解决序列化不乱码问题
+        //设置  key的序列号器
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
         redisTemplate.setKeySerializer(stringRedisSerializer);
+        /*
+          设置value的序列化器
+        * 该序列化器会在将对象序列化成json字符串的时候，每个对象都添加类型说明
+        * 需要被序列化的对象必须实现序列化接口
+        * */
         GenericJackson2JsonRedisSerializer redisSerializer = new GenericJackson2JsonRedisSerializer();
         redisTemplate.setValueSerializer(redisSerializer);
         redisTemplate.setDefaultSerializer(redisSerializer);

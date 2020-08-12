@@ -41,7 +41,7 @@
 	<!-- <![endif]-->
 
 	<!--[if IE]>-->
-	<script src="static/jquery/jquery-1.11.1.min.js"></script>
+	<!--<script src="static/jquery/jquery-1.11.1.min.js"></script>-->
 	<!-- <![endif]-->
 
 	<!-- ace settings handler -->
@@ -198,11 +198,7 @@
 												</option>
 
 											</select><div class="chosen-container chosen-container-single chosen-container-active chosen-with-drop" style="width: 60%; display: none" title="" id="chosen_select_chosen"><a class="chosen-single" tabindex="-1"><span>全部</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"><li class="active-result result-selected" data-option-array-index="0">全部</li><li class="active-result" data-option-array-index="1">操作日志</li><li class="active-result" data-option-array-index="2">异常日志</li></ul></div></div>
-											<script>
-                                                $(function(){
-                                                    $("#chosen-select").chosen({width: "60%",search_contains: true});
-                                                });
-											</script>
+
 										</div>
 										<div class="pull-left width-30">
 											<label>描述：</label>
@@ -235,19 +231,11 @@
 												<td class="center">{{log.requestUri}}</td>
 												<td class="center">
 													<div class="hidden-sm hidden-xs action-buttons">
-														<a class="purple" href="log-detail.html"
-														   data-mode="detail" data-title="详情"
-														   data-url="syslog/detail/showlayer"
-														   data-data="{id:'740'}"
-														   data-width="50%">
+														<a class="purple" @click="toDetail(log)">
 															<i class="ace-icon fa fa-search-plus bigger-130"></i>
 														</a>
 
-														<a class="red" href="javascript:void(0);"
-														   data-mode="del" data-title="删除操作"
-														   data-msg="你确定删除此数据吗?"
-														   data-url="syslog/delete"
-														   data-data="{id:'740'}">
+														<a class="red" @click="doDelete(log.id)">
 															<i class="ace-icon fa fa-trash-o bigger-130"></i>
 														</a>
 													</div>

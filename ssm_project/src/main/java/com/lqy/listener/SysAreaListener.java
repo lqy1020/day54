@@ -20,17 +20,13 @@ import java.util.List;
  * easyexcel官方规范：需要使用spring管理的bean通过构造器传入，不要将SysAreaListener给spring容器管理
  * */
 public class SysAreaListener extends AnalysisEventListener<SysArea> {
-
     SysAreaMapper mapper;
     List<SysArea>list=new ArrayList<>();
-
     public SysAreaListener(SysAreaMapper mapper) {
         this.mapper = mapper;
     }
-
     public SysAreaListener() {
     }
-
     /*
      * 每读取一行excel自动执行的方法
      * sysArea是解析一行excel记录后自动封装的java对象
@@ -47,7 +43,6 @@ public class SysAreaListener extends AnalysisEventListener<SysArea> {
             list.clear();
         }
     }
-
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
         if (list.size()>0){

@@ -8,7 +8,6 @@ let vm = new Vue({
         condition: {
             type: "",
             check: ""
-
         }
     },
     methods: {

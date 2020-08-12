@@ -12,7 +12,6 @@ let vm=new Vue({
         }
     },
     methods:{
-
         doUpdate:function () {
             axios({
                 url:`manager/statute/doUpdate`,

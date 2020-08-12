@@ -43,6 +43,10 @@ public class SysLogController {
         return new Result(true,"查询成功",service.selectPage(pageNum,pageSize,params));
 
     }
+    @RequestMapping("doDelete")
+    public Result doDelete(Long id){
+        return new Result(true,"删除成功",service.deleteByPrimaryKey(id));
+    }
 
 
 }
